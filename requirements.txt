@@ -1,11 +1,5 @@
-Python Standard Library
-
-math → built-in, no installation required.
-
-Third-party packages (install via pip)
-Package	Purpose
-requests	Fetches data from the Open-Meteo API.
-pandas	Handles tabular data (DataFrame for forecast data).
-streamlit	Main framework to build the interactive web app.
-plotly	Creates the line chart (plotly.express).
-streamlit-autorefresh	Handles automatic refreshing of the app.
+streamlit
+requests
+pandas
+plotly
+streamlit-autorefresh
