@@ -92,6 +92,28 @@ def go_to_page(page_name):
     st.session_state.page = page_name
 
 # -----------------------------
+# Hide Streamlit Branding + Add Custom Footer
+# -----------------------------
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+[data-testid="stToolbar"] {visibility: hidden;}
+
+/* Custom Footer Bottom Right */
+.custom-footer {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: 14px;
+    color: #888;
+    z-index: 100;
+}
+</style>
+"""
+
+# -----------------------------
 # Fetch Forecast
 # -----------------------------
 @st.cache_data(ttl=900)
