@@ -18,41 +18,6 @@ st.set_page_config(
 )
 
 # -----------------------------
-# Hide Streamlit Branding Properly + Custom Footer
-# -----------------------------
-hide_streamlit_style = """
-<style>
-
-/* Hide top right toolbar (Fork / Deploy) */
-[data-testid="stToolbar"] {display: none !important;}
-
-/* Hide Streamlit footer */
-[data-testid="stFooter"] {display: none !important;}
-footer {display: none !important;}
-
-/* Hide bottom-right Streamlit badge */
-.stAppDeployButton {display: none !important;}
-.css-164nlkn {display: none !important;}
-
-/* Custom Footer Bottom Right */
-.custom-footer {
-    position: fixed;
-    bottom: 12px;
-    right: 20px;
-    font-size: 14px;
-    color: #888;
-    z-index: 9999;
-}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-st.markdown(
-    '<div class="custom-footer">Created by Your Name</div>',
-    unsafe_allow_html=True
-)
-
-# -----------------------------
 # Dr. FixIT Wind Chill Formula
 # -----------------------------
 def wind_chill(temp_c, wind_kmh):
