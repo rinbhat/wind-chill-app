@@ -1,12 +1,5 @@
-streamlit
-<<<<<<< HEAD
 requests
 pandas
+streamlit
 plotly
 streamlit-autorefresh
-=======
-pandas
-numpy
-plotly
-streamlit-autorefresh
->>>>>>> 122548a (2nd app with new features)
