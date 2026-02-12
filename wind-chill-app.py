@@ -9,6 +9,43 @@ from plotly.subplots import make_subplots
 from streamlit_autorefresh import st_autorefresh
 
 # -----------------------------
+# Page Config
+# -----------------------------
+st.set_page_config(
+    page_title="❄ Norway Wind Chill Pro Dashboard",
+    layout="wide",
+    page_icon="❄"
+)
+
+# -----------------------------
+# Hide Streamlit Branding + Add Custom Footer
+# -----------------------------
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+[data-testid="stToolbar"] {visibility: hidden;}
+
+/* Custom Footer Bottom Right */
+.custom-footer {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: 14px;
+    color: #888;
+    z-index: 100;
+}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+st.markdown(
+    '<div class="custom-footer">Created by Your Name</div>',
+    unsafe_allow_html=True
+)
+
+# -----------------------------
 # Dr. FixIT Wind Chill Formula
 # -----------------------------
 def wind_chill(temp_c, wind_kmh):
@@ -16,12 +53,6 @@ def wind_chill(temp_c, wind_kmh):
         return temp_c
     v = wind_kmh ** 0.16
     return 13.12 + 0.6215*temp_c - 11.37*v + 0.3965*temp_c*v
-
-# -----------------------------
-# Page Config
-# -----------------------------
-st.set_page_config(page_title="❄ Norway Wind Chill Pro Dashboard",
-                   layout="wide", page_icon="❄")
 
 # -----------------------------
 # Cities (UPDATED FULL LIST)
@@ -61,11 +92,22 @@ CITIES = {
 # Sidebar
 # -----------------------------
 st.sidebar.header("⚙️ Settings")
-multi_cities = st.sidebar.multiselect("Select cities", sorted(CITIES.keys()), default=["Oslo", "Bergen","Trondheim","Stavanger","Kristiansand","Drammen","Sandnes","Fredrikstad","Tromsø","Lillestrøm","Sarpsborg","Skien","Sandefjord","Haugesund","Moss","Porsgrunn","Bodø","Arendal","Hamar","Ålesund","Mo i Rana","Narvik","Alta","Molde","Notodden","Levanger","Namsos","Voss"])
+multi_cities = st.sidebar.multiselect(
+    "Select cities",
+    sorted(CITIES.keys()),
+    default=["Oslo","Bergen","Trondheim","Stavanger","Kristiansand",
+             "Drammen","Sandnes","Fredrikstad","Tromsø","Lillestrøm",
+             "Sarpsborg","Skien","Sandefjord","Haugesund","Moss",
+             "Porsgrunn","Bodø","Arendal","Hamar","Ålesund",
+             "Mo i Rana","Narvik","Alta","Molde","Notodden",
+             "Levanger","Namsos","Voss"]
+)
+
 hours = st.sidebar.slider("Forecast hours", 12, 72, 24)
 refresh = st.sidebar.slider("Auto-refresh interval (sec)", 30, 600, 60)
 speed = st.sidebar.slider("Animation speed (seconds per hour)", 0.2, 2.0, 0.5)
 alert_threshold = st.sidebar.number_input("Extreme cold threshold (°C)", value=-20)
+
 st_autorefresh(interval=refresh*1000, key="refresh")
 
 # -----------------------------
@@ -84,7 +126,7 @@ def go_to_page(page_name):
 def fetch_forecast(lat, lon):
     url = (f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}"
            "&hourly=temperature_2m,windspeed_10m&timezone=auto")
-    r = requests.get(url, timeout=15, verify=False)
+    r = requests.get(url, timeout=15)
     r.raise_for_status()
     return r.json()
 
