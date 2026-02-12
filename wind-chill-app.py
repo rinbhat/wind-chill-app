@@ -18,23 +18,30 @@ st.set_page_config(
 )
 
 # -----------------------------
-# Hide Streamlit Branding + Add Custom Footer
+# Hide Streamlit Branding Properly + Custom Footer
 # -----------------------------
 hide_streamlit_style = """
 <style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-[data-testid="stToolbar"] {visibility: hidden;}
+
+/* Hide top right toolbar (Fork / Deploy) */
+[data-testid="stToolbar"] {display: none !important;}
+
+/* Hide Streamlit footer */
+[data-testid="stFooter"] {display: none !important;}
+footer {display: none !important;}
+
+/* Hide bottom-right Streamlit badge */
+.stAppDeployButton {display: none !important;}
+.css-164nlkn {display: none !important;}
 
 /* Custom Footer Bottom Right */
 .custom-footer {
     position: fixed;
-    bottom: 10px;
+    bottom: 12px;
     right: 20px;
     font-size: 14px;
     color: #888;
-    z-index: 100;
+    z-index: 9999;
 }
 </style>
 """
