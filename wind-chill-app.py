@@ -92,21 +92,30 @@ def go_to_page(page_name):
     st.session_state.page = page_name
 
 # -----------------------------
-# Hide Streamlit Branding Properly + Custom Footer
+# Remove Streamlit Branding Completely
 # -----------------------------
 hide_streamlit_style = """
 <style>
 
-/* Hide top right toolbar (Fork / Deploy) */
-[data-testid="stToolbar"] {display: none !important;}
+/* Hide top right toolbar (Fork, Deploy, etc.) */
+[data-testid="stToolbar"] {
+    display: none !important;
+}
 
-/* Hide Streamlit footer */
-[data-testid="stFooter"] {display: none !important;}
-footer {display: none !important;}
+/* Hide Streamlit footer container */
+[data-testid="stFooter"] {
+    display: none !important;
+}
 
-/* Hide bottom-right Streamlit badge */
-.stAppDeployButton {display: none !important;}
-.css-164nlkn {display: none !important;}
+/* Hide "Hosted with Streamlit" badge */
+div:has(> a[href*="streamlit.io"]) {
+    display: none !important;
+}
+
+/* Extra fallback: hide any footer */
+footer {
+    display: none !important;
+}
 
 /* Custom Footer Bottom Right */
 .custom-footer {
@@ -125,7 +134,6 @@ st.markdown(
     '<div class="custom-footer">Created by Your Name</div>',
     unsafe_allow_html=True
 )
-
 
 # -----------------------------
 # Fetch Forecast
