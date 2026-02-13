@@ -67,7 +67,7 @@ st.sidebar.header("⚙️ Settings")
 multi_cities = st.sidebar.multiselect(
     "Select cities",
     sorted(CITIES.keys()),
-    default=["Oslo",""Bergen","Trondheim","Stavanger","Kristiansand",
+    default=["Oslo","Bergen","Trondheim","Stavanger","Kristiansand",
              "Drammen","Sandnes","Fredrikstad","Tromsø","Lillestrøm",
               "Sarpsborg","Skien","Sandefjord","Haugesund","Moss",
              "Porsgrunn","Bodø","Arendal","Hamar","Ålesund",
