@@ -67,12 +67,12 @@ st.sidebar.header("⚙️ Settings")
 multi_cities = st.sidebar.multiselect(
     "Select cities",
     sorted(CITIES.keys()),
-    default=["Oslo","Bergen","Trondheim","Stavanger","Kristiansand",
-             "Drammen","Sandnes","Fredrikstad","Tromsø","Lillestrøm",
-             "Sarpsborg","Skien","Sandefjord","Haugesund","Moss",
-             "Porsgrunn","Bodø","Arendal","Hamar","Ålesund",
-             "Mo i Rana","Narvik","Alta","Molde","Notodden",
-             "Levanger","Namsos","Voss"]
+    #default=["Oslo","Bergen","Trondheim","Stavanger","Kristiansand",
+          #   "Drammen","Sandnes","Fredrikstad","Tromsø","Lillestrøm",
+          #   "Sarpsborg","Skien","Sandefjord","Haugesund","Moss",
+          #   "Porsgrunn","Bodø","Arendal","Hamar","Ålesund",
+          #   "Mo i Rana","Narvik","Alta","Molde","Notodden",
+          #   "Levanger","Namsos","Voss"]
 )
 
 hours = st.sidebar.slider("Forecast hours", 12, 72, 24)
