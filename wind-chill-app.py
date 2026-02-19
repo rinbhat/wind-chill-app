@@ -51,7 +51,7 @@ footer {visibility: hidden;}       /* hide bottom footer */
     color: #444;
 }
 </style>
-<div class="custom-footer">Developed by First Name Last Name</div>
+<div class="custom-footer">Developed by Rinku Bhat</div>
 """, unsafe_allow_html=True)
 
 # -----------------------------
