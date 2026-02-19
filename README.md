@@ -1,46 +1,219 @@
-# ❄ Live Wind Chill Forecast
+# ❄ Norway Wind Chill Dashboard
 
-Dr. FixIT's formula to create a **live wind chill forecast** using Python, Streamlit, and Plotly. The app fetches hourly temperature and wind speed data from [Open-Meteo API](https://open-meteo.com/) and calculates the wind chill.  
+A real-time **wind chill analytics dashboard** built with Streamlit, Plotly, and the Open-Meteo API.
 
----
-
-## 🌐 Features
-
-- Live wind chill calculation based on temperature and wind speed.
-- Interactive **chart** of temperature vs. wind chill.
-- **Forecast table** for detailed hourly data.
-- **Auto-refresh** option to update the forecast automatically.
-- Adjustable **latitude, longitude, forecast hours, and refresh interval** via sidebar.
-- Default location set to **Stavanger, Norway** (can be changed in the sidebar).
+The app fetches hourly weather forecasts (temperature and wind speed) and calculates wind chill to visualize cold exposure across major Norwegian cities using interactive charts, heatmaps, gauges, leaderboards, and a live map.
 
 ---
 
-## 📍 Default Location
+## 🌐 Overview
 
-- **Latitude:** 58.97  
-- **Longitude:** 5.73  
+The **Norway Wind Chill Pro Dashboard** provides:
 
-You can update the location in the sidebar to your preferred coordinates.
+* Real-time forecast insights
+* Multi-city comparison
+* Advanced visual analytics
+* Automatic data refresh
+* Interactive exploration controls
+
+Ideal for weather monitoring, data visualization demos, and Streamlit portfolio projects.
 
 ---
 
-## 🛠 Installation
+## ✨ Features
 
-1. Clone or download this repository:
+### 📊 Core Analytics
+
+* Real-time wind chill calculation
+* Hourly forecast up to 72 hours
+* Multi-city comparison (default: Oslo & Stavanger)
+* Extreme cold threshold alerts
+
+### 📈 Visual Dashboards
+
+* Animated comparison charts
+* Coldest cities leaderboard
+* Forecast heatmap animation
+* Gauge-style cold meter
+* Interactive Norway city map
+
+### ⚙️ Interactivity
+
+* City selection (multi-select)
+* Forecast duration slider
+* Auto-refresh interval control
+* Animation speed control
+* Extreme cold alert threshold
+
+### 🧾 Data Tables
+
+* Expandable forecast tables per city
+* Conditional formatting for extreme cold values
+
+---
+
+## 🧮 Wind Chill Formula
+
+```
+WCI = 13.12 + 0.6215T − 11.37V^0.16 + 0.3965TV^0.16
+```
+
+Where:
+
+* **T** = Temperature (°C)
+* **V** = Wind speed (km/h)
+
+If temperature > 10°C or wind speed < 4.8 km/h, wind chill equals actual temperature.
+
+---
+
+## 🗺 Supported Cities
+
+Includes major Norwegian cities such as:
+
+Oslo, Bergen, Trondheim, Stavanger, Tromsø, Kristiansand, Drammen, Sandnes, Ålesund, Bodø, Alta, Narvik, Molde, Haugesund, and more.
+
+You can easily extend the list in the `CITIES` dictionary.
+
+---
+
+## 🧰 Tech Stack
+
+* Python
+* Streamlit
+* Pandas
+* Plotly
+* Open-Meteo API
+* Plotly Mapbox
+
+---
+
+## 📦 Installation
+
+### 1️⃣ Clone the repository
 
 ```bash
 git clone <your-repo-url>
 cd <your-repo-folder>
-__________________________________________________________________________________________________________________________
+```
 
-Python Standard Library
+### 2️⃣ Create a virtual environment
 
-math → built-in, no installation required.
+```bash
+python -m venv venv
+```
 
-Third-party packages (install via pip)
-Package	Purpose
-requests	Fetches data from the Open-Meteo API.
-pandas	Handles tabular data (DataFrame for forecast data).
-streamlit	Main framework to build the interactive web app.
-plotly	Creates the line chart (plotly.express).
-streamlit-autorefresh	Handles automatic refreshing of the app.
+Activate:
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**macOS / Linux**
+
+```bash
+source venv/bin/activate
+```
+
+### 3️⃣ Install dependencies
+
+```bash
+pip install streamlit pandas plotly requests certifi streamlit-autorefresh
+```
+
+---
+
+## ▶️ Run the App
+
+```bash
+streamlit run app.py
+```
+
+Open in your browser:
+
+```
+http://localhost:8501
+```
+
+---
+
+## ⚙️ Configuration
+
+Sidebar controls allow you to adjust:
+
+* Dashboard view
+* Cities
+* Forecast hours
+* Auto-refresh interval
+* Animation speed
+* Extreme cold threshold
+
+---
+
+## 🔄 Data Source
+
+Weather data is provided by the **Open-Meteo Forecast API**
+
+* Free and no API key required
+* Hourly forecast data
+* Automatic timezone detection
+
+https://open-meteo.com/
+
+---
+
+## 📁 Project Structure
+
+```
+project/
+│
+├── app.py
+├── README.md
+├── requirements.txt
+└── assets/
+```
+
+---
+
+## 🚀 Deployment
+
+You can deploy the app on:
+
+* Streamlit Community Cloud
+* Docker
+* Azure App Service
+* AWS / GCP VM
+* On-prem server
+
+---
+
+## 🧩 Future Enhancements
+
+* Historical weather trends
+* Extreme cold notifications
+* Saved user locations
+* Export to CSV/PDF
+* Dark mode toggle
+* Mobile layout optimization
+
+---
+
+## 👨‍💻 Author
+
+Rinku Bhat
+
+---
+
+## 📜 License
+
+MIT License — free to use, modify, and distribute.
+
+---
+
+## ⭐ Acknowledgements
+
+* Open-Meteo for the weather API
+* Streamlit for the dashboard framework
+* Plotly for visualization tools
