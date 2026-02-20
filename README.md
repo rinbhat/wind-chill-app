@@ -88,57 +88,6 @@ You can easily extend the list in the `CITIES` dictionary.
 
 ---
 
-## 📦 Installation
-
-### 1️⃣ Clone the repository
-
-```bash
-git clone <your-repo-url>
-cd <your-repo-folder>
-```
-
-### 2️⃣ Create a virtual environment
-
-```bash
-python -m venv venv
-```
-
-Activate:
-
-**Windows**
-
-```bash
-venv\Scripts\activate
-```
-
-**macOS / Linux**
-
-```bash
-source venv/bin/activate
-```
-
-### 3️⃣ Install dependencies
-
-```bash
-pip install streamlit pandas plotly requests certifi streamlit-autorefresh
-```
-
----
-
-## ▶️ Run the App
-
-```bash
-streamlit run app.py
-```
-
-Open in your browser:
-
-```
-http://localhost:8501
-```
-
----
-
 ## ⚙️ Configuration
 
 Sidebar controls allow you to adjust:
